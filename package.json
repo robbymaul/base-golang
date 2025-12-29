@@ -1,0 +1,24 @@
+{
+  "name": "payment-service-klink",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/K-Link-Indonesia/K-Link-Payment#readme",
+  "bugs": {
+    "url": "https://github.com/K-Link-Indonesia/K-Link-Payment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-Link-Indonesia/K-Link-Payment.git"
+  },
+  "license": "ISC",
+  "author": "klink",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/k6": "^1.4.0",
+    "k6": "^0.0.0"
+  }
+}

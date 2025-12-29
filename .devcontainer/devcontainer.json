@@ -1,0 +1,40 @@
+{
+    "name": "GO Devcontainer",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "ALPINE_VERSION": "3.20",
+            "GO_VERSION": "1.23.0"
+        }
+    },
+    "forwardPorts": [8080, 9090, 10000],
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "davidanson.vscode-markdownlint",
+                "golang.Go",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.go",
+                "ms-vscode.makefile-tools",
+                "vscodevim.vim",
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                "rangav.vscode-thunder-client"
+            ]
+        },
+        "settings": {
+            "go.useLanguageServer": true
+        }
+    },
+    "runArgs": [
+        "-u",
+        "vscode",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined",
+        // map SSH keys for Git
+        "-v", "${env:HOME}/.ssh:/home/vscode/.ssh:ro",
+        "--network=smartdnm"
+    ]
+}

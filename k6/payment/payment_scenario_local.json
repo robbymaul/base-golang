@@ -1,0 +1,52 @@
+{
+  "paymentScenario": {
+    "baseUrl": "http://localhost:10003/api/v1",
+    "method": "POST",
+    "apiKey": "PbRTlpkA5x9WMdK6nVn71q165sUm3c",
+    "secretKey": "mxt9XZTV72QbnytKW4P4Lnt8SJsRoVRyNibyctSSLr6MRQQarP",
+    "body": {
+      "apiKey": "",
+      "secretKey": "",
+      "payments": [
+        {
+          "orderId": "",
+          "channel": [
+            {
+              "id": 18,
+              "name": "BCA Virtual Account",
+              "paymentMethod": "VIRTUAL_ACCOUNT",
+              "currency": "IDR",
+              "feeType": "fixed",
+              "feeAmount": 5000,
+              "isActive": true,
+              "balance": 0,
+              "bankName": "BCA",
+              "amount": 90000
+            }
+          ],
+          "products": [{}],
+          "amount": 90000
+        }
+      ],
+      "customerId": "IDSPAAA66834",
+      "customerName": "JHON DOE",
+      "customerEmail": "dionrespati@gmail.com",
+      "customerPhone": "0877804441874",
+      "referenceId": "",
+      "referenceType": "",
+      "returnUrl": ""
+    },
+    "scenario": {
+      "executor": "ramping-vus",
+      "stages": [
+        { "duration": "30s", "target": 10 },
+        { "duration": "1m", "target": 20 },
+        { "duration": "30s", "target": 0 }
+      ]
+    },
+    "thresholds": {
+        "http_req_duration": ["p(95)<3000"], 
+        "http_req_failed": ["rate<0.01"] 
+      }
+  }
+}
