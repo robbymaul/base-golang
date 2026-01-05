@@ -1,9 +1,10 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
+	pkgjwt "application/pkg/jwt"
 	"net/http"
-	pkgjwt "paymentserviceklink/pkg/jwt"
+
+	"github.com/gin-gonic/gin"
 )
 
 func (a *Auth) AdminAuthorization() gin.HandlerFunc {

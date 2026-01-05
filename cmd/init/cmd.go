@@ -292,7 +292,7 @@ func (cmd *Command) UpdatePasswordUserAdmin(cfg *config.Config) {
 
 func updatePasswordUserAdmin(rc *repositories.RepositoryContext, cfg *config.Config) string {
 
-	return password
+	return ""
 
 }
 

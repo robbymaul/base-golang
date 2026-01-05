@@ -1,7 +1,7 @@
 package main
 
 import (
-	appiinit "application/init"
+	appiinit "application/cmd/init"
 	"os"
 	"time"
 )

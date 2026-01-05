@@ -1,14 +1,15 @@
 package init
 
 import (
+	"application/config"
+	"application/pkg/database"
 	"fmt"
+	"path/filepath"
+
 	"github.com/golang-migrate/migrate/v4"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	"github.com/rs/zerolog/log"
-	"path/filepath"
-	"paymentserviceklink/config"
-	"paymentserviceklink/pkg/database"
 )
 
 var (

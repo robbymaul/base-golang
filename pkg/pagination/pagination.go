@@ -1,11 +1,11 @@
 package pagination
 
 import (
+	"application/app/web"
+	"application/pkg/util"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"paymentserviceklink/app/web"
-	"paymentserviceklink/pkg/util"
 	"strconv"
 	"strings"
 	"time"

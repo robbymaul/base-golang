@@ -1,14 +1,14 @@
 package pkgjwt
 
 import (
+	"application/app/web"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"time"
+
 	"github.com/golang-jwt/jwt"
 	"github.com/rs/zerolog/log"
-	"paymentserviceklink/app/enums"
-	"paymentserviceklink/app/web"
-	"time"
 )
 
 // JwtAdapter handles JWT creation and management.
@@ -20,9 +20,9 @@ type JwtAdapter struct {
 
 // IssueJwtPayload represents the payload used to create a JWT.
 type IssueJwtPayload struct {
-	Id       int64
-	Subject  string
-	Role     enums.CodeAdminRole
+	Id      int64
+	Subject string
+	// Role     enums.CodeAdminRole
 	Lifetime int64
 }
 
@@ -44,7 +44,7 @@ func NewJwtAdapter(issuer, secret string) *JwtAdapter {
 }
 
 // IssueJwt issues a new JWT based on the provided payload.
-func (j *JwtAdapter) IssueJwt(payload *IssueJwtPayload) (*web.AdminSessionResponse, error) {
+func (j *JwtAdapter) IssueJwt(payload *IssueJwtPayload) (*web.Session, error) {
 	exp := time.Now().Add(time.Hour * time.Duration(payload.Lifetime)).Unix()
 
 	token := jwt.New(j.Algorithm)
@@ -52,7 +52,6 @@ func (j *JwtAdapter) IssueJwt(payload *IssueJwtPayload) (*web.AdminSessionRespon
 	claims["id"] = payload.Id
 	claims["exp"] = exp
 	claims["sub"] = payload.Subject
-	claims["role"] = payload.Role
 	claims["iss"] = j.Issuer // Adding issuer to claims for more context
 
 	tokenString, err := token.SignedString([]byte(j.Secret))
@@ -60,7 +59,7 @@ func (j *JwtAdapter) IssueJwt(payload *IssueJwtPayload) (*web.AdminSessionRespon
 		return nil, fmt.Errorf("failed to issue JWT token: %w", err)
 	}
 
-	return &web.AdminSessionResponse{Token: tokenString, ExpiredAt: exp, Role: payload.Role}, nil
+	return &web.Session{Token: tokenString, ExpiredAt: exp}, nil
 }
 
 func (j *JwtAdapter) VerifyJwt(token string) (*JwtResponse, error) {

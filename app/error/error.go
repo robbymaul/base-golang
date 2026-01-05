@@ -1,10 +1,10 @@
 package error
 
 import (
+	"application/app/web"
 	"errors"
 	"fmt"
 	"net/http"
-	"paymentserviceklink/app/web"
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"

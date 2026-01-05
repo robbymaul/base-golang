@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"paymentserviceklink/app/repositories"
-	"paymentserviceklink/config"
+	"application/app/repositories"
+	"application/config"
 	"time"
 )
 
