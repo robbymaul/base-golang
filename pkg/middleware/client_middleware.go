@@ -5,13 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
 	"gorm.io/gorm"
-	"io"
-	"net/http"
-	"paymentserviceklink/app/validate"
-	"paymentserviceklink/app/web"
 )
 
 func (a *Auth) ClientMiddleware() gin.HandlerFunc {

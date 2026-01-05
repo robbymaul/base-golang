@@ -1,16 +1,11 @@
 package repositories
 
 import (
+	"application/config"
+	"application/pkg/pagination"
 	"context"
 	"errors"
 	"fmt"
-	"paymentserviceklink/app/client/espay"
-	"paymentserviceklink/app/client/midtrans"
-	clientsenangpay "paymentserviceklink/app/client/senangpay"
-	"paymentserviceklink/app/models"
-	"paymentserviceklink/app/strategy"
-	"paymentserviceklink/config"
-	"paymentserviceklink/pkg/pagination"
 	"strings"
 
 	"github.com/rs/zerolog/log"
@@ -57,17 +52,6 @@ func (rc *RepositoryContext) WithTransaction(callback transactionFn) error {
 	}
 
 	return nil
-}
-
-func (rc *RepositoryContext) SetConfigurationPayment(configurations *models.Configuration) {
-	log.Debug().Interface("configurations", configurations).Msg("set configuration payment")
-	rc.Senangpay = clientsenangpay.NewSenangpay(rc.HttpClient, configurations)
-	log.Debug().Interface("senangpay", rc.Senangpay).Msg("new senangpay")
-	rc.Midtrans = midtrans.NewMidtrans(rc.HttpClient, configurations)
-	log.Debug().Interface("midtrans", rc.Midtrans).Msg("new midtrans")
-	rc.Espay = espay.NewEspay(rc.HttpClient, configurations)
-	log.Debug().Interface("espay", rc.Espay).Msg("new espay")
-	rc.Strategy = strategy.NewStrategy(rc.Senangpay, rc.Midtrans, rc.Espay)
 }
 
 func (rc *RepositoryContext) SearchQuery(filters []*pagination.Filter, joinOperator string) (string, []interface{}) {

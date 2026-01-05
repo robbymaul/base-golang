@@ -1,12 +1,13 @@
 package repositories
 
 import (
+	"application/config"
+	"application/pkg/database"
+	"application/pkg/util"
 	"context"
 	"fmt"
+
 	"github.com/rs/zerolog/log"
-	"paymentserviceklink/config"
-	"paymentserviceklink/pkg/database"
-	"paymentserviceklink/pkg/util"
 )
 
 type Repository struct {

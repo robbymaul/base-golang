@@ -2,9 +2,10 @@ package middleware
 
 import (
 	"errors"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-	"net/http"
 )
 
 type ErrorTrace struct {

@@ -1,1 +1,0 @@
-drop table if exists virtual_account_k_wallet

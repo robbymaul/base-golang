@@ -44,41 +44,4 @@ type Config struct {
 	JwtSecret string `envconfig:"JWT_SECRET"`
 	JwtExpire int64  `envconfig:"JWT_EXPIRE"`
 	JwtIssuer string `envconfig:"JWT_ISSUER"`
-
-	// SENANGPAY
-	SenangpayIsProduction bool   `envconfig:"SENANGPAY_IS_PRODUCTION"`
-	SenangpayUrl          string `envconfig:"SENANGPAY_URL"`
-	SenangpaySecretKey    string `envconfig:"SENANGPAY_SECRET_KEY"`
-	SenangpayMerchantId   string `envconfig:"SENANGPAY_MERCHANT_ID"`
-
-	// MIDTRANS
-	MidtransIsProduction        bool   `envconfig:"MIDTRANS_IS_PRODUCTION"`
-	MidtransBaseUrlProduction   string `envconfig:"MIDTRANS_BASE_URL_PRODUCTION"`
-	MidtransServerKeyProduction string `envconfig:"MIDTRANS_SERVER_KEY_PRODUCTION"`
-	MidtransClientKeyProduction string `envconfig:"MIDTRANS_CLIENT_KEY_PRODUCTION"`
-	MidtransBaseUrlSandbox      string `envconfig:"MIDTRANS_BASE_URL_SANDBOX"`
-	MidtransServerKeySandbox    string `envconfig:"MIDTRANS_SERVER_KEY_SANDBOX"`
-	MidtransClientKeySandbox    string `envconfig:"MIDTRANS_CLIENT_KEY_SANDBOX"`
-
-	// ESPAY
-	EspayIsProduction            bool   `envconfig:"ESPAY_IS_PRODUCTION"`
-	EspayTopupBaseUrl            string `envconfig:"ESPAY_TOPUP_BASE_URL"`
-	EspayTopupMerchantCode       string `envconfig:"ESPAY_TOPUP_MERCHANT_CODE"`
-	EspayTopupMerchantName       string `envconfig:"ESPAY_TOPUP_MERCHANT_NAME"`
-	EspayTopupApiKey             string `envconfig:"ESPAY_TOPUP_API_KEY"`
-	EspayTopupSignatureKey       string `envconfig:"ESPAY_TOPUP_SIGNATURE_KEY"`
-	EspayTopupCredentialPassword string `envconfig:"ESPAY_TOPUP_CREDENTIAL_PASSWORD"`
-	EspayTopupPublicKey          string `envconfig:"ESPAY_TOPUP_PUBLIC_KEY"`
-	EspayTopupPrivateKey         string `envconfig:"ESPAY_TOPUP_PRIVATE_KEY"`
-	EspayTopupReturnUrl          string `envconfig:"ESPAY_TOPUP_RETURN_URL"`
-
-	// S3
-	S3AccessKeyId       string `envconfig:"S3_ACCESS_KEY_ID"`
-	S3BucketName        string `envconfig:"S3_BUCKET_NAME"`
-	S3Endpoint          string `envconfig:"S3_ENDPOINT_NAME"`
-	S3Region            string `envconfig:"S3_REGION"`
-	S3SecretAccessKey   string `envconfig:"S3_SECRET_ACCESS_KEY"`
-	S3UploadUrlLifetime uint   `envconfig:"S3_UPLOAD_URL_LIFETIME"`
-	S3UseSSL            bool   `envconfig:"S3_USE_SSL"`
-	S3AssetLogo         string `envconfig:"S3_ASSET_LOGO"`
 }

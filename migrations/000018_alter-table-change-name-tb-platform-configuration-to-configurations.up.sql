@@ -1,1 +1,0 @@
-alter table platform_configurations rename to configurations;

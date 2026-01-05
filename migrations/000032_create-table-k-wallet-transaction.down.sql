@@ -1,1 +1,0 @@
-drop table if exists k_wallet_transaction
