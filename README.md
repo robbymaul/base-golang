@@ -1,6 +1,6 @@
-# Payment Service
+# Application Service
 
-A Go-based payment service with PostgreSQL database integration and Docker support.
+A Go-based Application service with PostgreSQL database integration and Docker support.
 
 ## Prerequisites
 
@@ -96,13 +96,13 @@ make k6-health-check
 # When prompted, enter k6 options (e.g., "-u 10 -d 30s" for 10 users for 30 seconds)
 ```
 
-Run payment scenario tests:
+Run Application scenario tests:
 ```bash
 # Run production scenario
-make k6-payment-scenario
+make k6-Application-scenario
 
 # Run development scenario
-make k6-payment-scenario-dev
+make k6-Application-scenario-dev
 ```
 
 ## Project Structure
@@ -115,8 +115,8 @@ make k6-payment-scenario-dev
 ├── config/               # Configuration files
 ├── k6/                   # Load testing scripts
 │   ├── health.js         # Health check test
-│   └── payment/          # Payment test scenarios
-│       ├── payment.js     # Production payment test
+│   └── Application/          # Application test scenarios
+│       ├── Application.js     # Production Application test
 │       └── payment_dev.js # Development payment test
 ├── migrations/           # Database migrations
 └── vendor/               # Dependencies (managed by Go modules)
